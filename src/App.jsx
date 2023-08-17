@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+  import {useState} from 'react'
+  import React from "react";
+  import NavBarComponent from "./components/NavBarComponent/NavBarComponent";
+  import CartWidget from "./components/CartWidget/CartWidget";
+  import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+  import ButtonComponent from './components/ButtonComponent/ButtonComponent';
+  import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
+
+    const [count, setCount] = useState(0)
+
+    let incrementar = () => {
+      setCount(count + 1)
+    }
+
+    let decrementar = () => {
+      setCount(count - 1)
+    }
   return (
-    <>
+
+    <div>
+      <NavBarComponent/>
+      <ItemListContainer greeting="¡Bienvenidx a Tienda Tech!" />
+
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h2>Contador: {count}</h2>
+        <ButtonComponent label="Incrementar" bsButtonType="success" onClickFunction={incrementar}></ButtonComponent>
+        
+        <ButtonComponent label="Decrementar" bsButtonType="danger" onClickFunction={decrementar}></ButtonComponent>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
