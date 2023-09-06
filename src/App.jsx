@@ -10,28 +10,17 @@
 const App = () => {
 
     const [count, setCount] = useState(0)
-
     let incrementar = () => {
       setCount(count + 1)
     }
-
     let decrementar = () => {
       setCount(count - 1)
     }
   return (
 
-    <div>
-      <NavBarComponent/>
-      <ItemListContainer greeting="¡Bienvenidx a Tienda Tech!" />
+    <MainRouter/>
 
-      <div>
-        <h2>Contador: {count}</h2>
-        <ButtonComponent label="Incrementar" bsButtonType="success" onClickFunction={incrementar}></ButtonComponent>
-        
-        <ButtonComponent label="Decrementar" bsButtonType="danger" onClickFunction={decrementar}></ButtonComponent>
-      </div>
-    </div>
-  );
+  )
 }
 
 export default App;
