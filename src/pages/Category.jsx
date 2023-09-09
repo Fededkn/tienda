@@ -1,5 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
 import { useParams } from 'react-router-dom';
 
 
@@ -133,11 +132,3 @@ const Category = () => {
     
 
 export default Category
-=======
-
-export const Category = () => {
-  return (
-    <div>Category</div>
-  )
-}
->>>>>>> d569e9762616fef27b7860a21d47c6e5de136bb7
