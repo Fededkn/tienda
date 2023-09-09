@@ -9,6 +9,7 @@
 
 const App = () => {
 
+<<<<<<< HEAD
   return (
     <div>
       <main>
@@ -17,6 +18,20 @@ const App = () => {
 
     </div>
   );
+=======
+    const [count, setCount] = useState(0)
+    let incrementar = () => {
+      setCount(count + 1)
+    }
+    let decrementar = () => {
+      setCount(count - 1)
+    }
+  return (
+
+    <MainRouter/>
+
+  )
+>>>>>>> d569e9762616fef27b7860a21d47c6e5de136bb7
 }
 
 export default App;
