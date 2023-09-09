@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = ({ productsData }) => {
     return (
         <div>
             <h2>{greeting}</h2>
