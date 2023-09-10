@@ -10,7 +10,7 @@ const NavBarComponent = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand><Link to={"#home"}></Link>Tienda Tech</Navbar.Brand>
+                <Navbar.Brand><Link to={"/"}></Link>Tienda Tech</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

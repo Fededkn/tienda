@@ -1,4 +1,4 @@
-export const ProductsData = [
+export const productsData = [
     {
         id: 1,
         name: "Motherboard01",
@@ -6,7 +6,7 @@ export const ProductsData = [
         price: 10000,
         pictureUrl: "",
         stock: "10",
-        categories: "motherboards",
+        category: "motherboards",
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const ProductsData = [
         price: 10000,
         pictureUrl: "",
         stock: "10",
-        categories: "motherboards",
+        category: "motherboards",
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ export const ProductsData = [
         price: 11000,
         pictureUrl: "",
         stock: "8",
-        categories: "motherboards",
+        category: "motherboards",
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ export const ProductsData = [
         price: 12000,
         pictureUrl: "",
         stock: "7",
-        categories: "motherboards",
+        category: "motherboards",
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ export const ProductsData = [
         price: 15000,
         pictureUrl: "",
         stock: "15",
-        categories: "procesadores",
+        category: "procesadores",
     },
     {
         id: 6,
@@ -51,7 +51,7 @@ export const ProductsData = [
         price: 16000,
         pictureUrl: "",
         stock: "12",
-        categories: "procesadores",
+        category: "procesadores",
     },
     {
         id: 7,
@@ -60,7 +60,7 @@ export const ProductsData = [
         price: 18000,
         pictureUrl: "",
         stock: "9",
-        categories: "procesadores",
+        category: "procesadores",
     },
     {
         id: 8,
@@ -69,7 +69,7 @@ export const ProductsData = [
         price: 17000,
         pictureUrl: "",
         stock: "11",
-        categories: "procesadores",
+        category: "procesadores",
     },
     {
         id: 9,
@@ -78,7 +78,7 @@ export const ProductsData = [
         price: 25000,
         pictureUrl: "",
         stock: "6",
-        categories: "placasdevideo",
+        category: "placasdevideo",
     },
     {
         id: 10,
@@ -87,7 +87,7 @@ export const ProductsData = [
         price: 26000,
         pictureUrl: "",
         stock: "5",
-        categories: "placasdevideo",
+        category: "placasdevideo",
     },
     {
         id: 11,
@@ -96,7 +96,7 @@ export const ProductsData = [
         price: 28000,
         pictureUrl: "",
         stock: "4",
-        categories: "placasdevideo",
+        category: "placasdevideo",
     },
     {
         id: 12,
@@ -105,6 +105,6 @@ export const ProductsData = [
         price: 27000,
         pictureUrl: "",
         stock: "7",
-        categories: "placasdevideo",
+        category: "placasdevideo",
     }
 ]
