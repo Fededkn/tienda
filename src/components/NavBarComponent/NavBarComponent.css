@@ -11,7 +11,7 @@
 .nav-link {
     font-size: 16px;
     color: #333;
-    text-decoration: none;
+    
 }
 
 .brand {
@@ -19,4 +19,13 @@
     font-size: 50px;
     display: flex;
     justify-content: center;
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.item-list-container {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap; 
+    gap: 20px;
 }
