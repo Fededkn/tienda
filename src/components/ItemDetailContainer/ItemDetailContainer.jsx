@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Link, useParams } from 'react-router-dom';
-import { productsData } from '../../json/ProductsData';
+import React, { useEffect, useState } from 'react';
+import { getItem } from '../../json/ProductsData'; 
+import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
+    const [producto, setProducto] = useState({});
+    const [loader, setLoader] = useState(false)
+    const { id } = useParams()
 
-    const {productId} = useParams ();
-
-    const productFiltered = productsData.filter((item) => item.id === parseInt(productId));
+    useEffect(() => {
+        setLoader(true)
+            getItem(id)
+            .then((res) => setProducto(res))
+            .catch((error) => console.log(error))
+            .finally(()=> setLoader(false))
+    }, []);
 
     return (
         <div>
-            {
-                productFiltered.map((item) => (
-                    <Card style={{ width: '18rem' }} key={item.id}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Text>{item.description}</Card.Text>
-                    </Card.Body>
-                </Card>
-                ))}
+            {loader ? <p>Cargando...</p> : <ItemDetail producto={producto}/>}
         </div>
     );
 };

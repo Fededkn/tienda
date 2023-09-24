@@ -1,26 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './ItemListContainer.css';
 import { Link } from 'react-router-dom';
+import ItemList from '../ItemList/ItemList';
+import ItemCount from '../ItemCount/ItemCount';
+import { getProducts } from '../../json/ProductsData';
+import { useParams } from 'react-router-dom';
 
 
-const ItemListContainer = ({ productsData }) => {
+const ItemListContainer = ({greeting}) => {
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(false)
+    const {categoryId} = useParams()
+
+    useEffect(() =>{
+        setLoading(true);
+        getProducts()
+        .then((res)  => {
+            if(categoryId){
+                setProductos(res.filter((item)=> item.category === categoryId))
+            }else{
+                setProductos(res)
+            }
+        }) 
+        .catch((error) => console.log(error))
+        .finally(()=> setLoading(false))
+    },[categoryId])
+
+    if(loading){
+        return(
+            <p>Cargando...</p>
+        ) 
+    }
 
     return (
-        <div className="item-list-container">
-            {
-            productsData.map((item) => (
-                <Card style={{ width: '18rem' }} key={item.id}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Text>{item.description}</Card.Text>
-                        <Link to={`/item/${item.id}`}>Detale de producto</Link>
-                    </Card.Body>
-                </Card>
-            ))
-            }
+        
+        <div>
+            <h1>{greeting} <span>{categoryId && categoryId}</span></h1>
+            <ItemList productos={productos}/>
         </div>
     );
 };

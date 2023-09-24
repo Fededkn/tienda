@@ -1,4 +1,3 @@
-  import {useState} from 'react'
   import React from "react";
   import NavBarComponent from "./components/NavBarComponent/NavBarComponent";
   import CartWidget from "./components/CartWidget/CartWidget";
