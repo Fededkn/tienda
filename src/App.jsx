@@ -4,6 +4,7 @@
   import ButtonComponent from './components/ButtonComponent/ButtonComponent';
   import 'bootstrap/dist/css/bootstrap.min.css';
   import MainRouter from './routes/MainRouter';
+import { CartProvider } from "./CartContext/CartContext";
 
 
 const App = () => {
@@ -11,7 +12,10 @@ const App = () => {
   return (
     <div>
       <main>
-      <MainRouter/>
+        <CartProvider>
+          <MainRouter/>
+        </CartProvider>
+      
       </main>
 
     </div>

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import './ItemListContainer.css';
-import { Link } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
 import ItemCount from '../ItemCount/ItemCount';
 import { getProducts } from '../../json/ProductsData';

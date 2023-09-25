@@ -1,37 +1,38 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap'
+import { CartContext } from '../../CartContext/CartContext';
 
-const ItemCount = ({stock, onAdd, initial}) => {
-    const [count, setCount] = useState(initial)
+const ItemCount = ({ stock, onAdd }) => {
 
-    let incrementar = () => {
+    const [count, setCount] = useState(0);
+
+    const { cartItems, setCartItems } = useContext(CartContext);
+
+    const handleAddProduct = () => {
         if(count < stock){
-            setCount(count + 1)
+            setCartItems(cartItems + 1);
+            setCount(count + 1);
+        }
+    };
+
+
+    const handleRemoveProduct = () => {
+        if(count > 0){
+            setCartItems(cartItems - 1)
+            setCount(count - 1)
         }
     }
 
-    let decrementar = () => {
-
-        if(count >0){
-            setCount(count-1)
-        }
-    }
-    
     return (
         <div>
             <div>
-                <Button onClick={decrementar}>-</Button>
-                <span>{count}</span>
-                <Button onClick={incrementar}>+</Button>
+                <Button onClick={handleRemoveProduct}>-</Button>
+                <label>{count}</label>
+                <Button onClick={handleAddProduct}>+</Button>
             </div>
-            <Button disabled={count === 0} onClick={()=>onAdd(count)}>Comprar</Button>
+            <Button disabled={count === 0} onClick={() => onAdd(count)}>Comprar</Button>
         </div>
-    )
+    );
 }
 
-export default ItemCount
-
-
-
-
-
+export default ItemCount;

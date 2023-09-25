@@ -1,7 +1,7 @@
 export const productsData = [
     {id: '01', name: 'Motherboard01', description: "Mother azul", price: 10000,pictureUrl: "", stock: 10, category: "motherboards",},
     {id: '02', name: 'Motherboard02', description: "Mother rojo", price: 10000, pictureUrl: "", stock: 10, category: "motherboards",},
-    {id: '03', name: 'Motherboard03', description: "Mother verde", price: 11000, pictureUrl: "", stock: 8, category: "motherboards",},
+    {id: '03', name: 'Motherboard03', description: "Mother verde", price: 11000, pictureUrl: "", stock: 4, category: "motherboards",},
     {id: '04', name: 'Motherboard04', description: "Mother amarillo", price: 12000, pictureUrl: "", stock: 7, category: "motherboards",},
     {id: '05', name: 'Procesador01',description: "procesador - Plateado",price: 15000,pictureUrl: "",stock: 15,category: "procesadores",},
     {id: '06', name: 'Procesador02', description: "Procesador - Negro", price: 16000, pictureUrl: "", stock: 12, category: "procesadores",},
