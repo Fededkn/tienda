@@ -1,12 +1,16 @@
-import { Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link, NavLink } from 'react-router-dom';
 import './NavBarComponent.css';
+import { useCollection } from '../../hooks/useCollection';
 
 const NavBarComponent = () => {
+
+    const {data, loading} = useCollection("categories")
+
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
@@ -14,12 +18,22 @@ const NavBarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                            <NavDropdown.Item as={NavLink} to="/category/motherboards">Motherboards</NavDropdown.Item>
-                            <NavDropdown.Item as={NavLink} to="/category/procesadores">Procesadores</NavDropdown.Item>
-                            <NavDropdown.Item as={NavLink} to="/category/placasdevideo">Placas de video</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                        </NavDropdown>
+                        <Nav.Link>
+                            <Link to="/">Home</Link>
+                        </Nav.Link>
+                        
+                        { loading ? null : (
+                            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+                            {data[0].categories.map((category, index) => {
+                                return (
+                                    <NavDropdown.Item key={index}>
+                                <Link to={`/category/${category}`}>{category}</Link>
+                            </NavDropdown.Item>
+                        );
+                        })}
+                            </NavDropdown>
+                        )}
+
                         <Nav.Link href="#link">Contacto</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -27,6 +41,6 @@ const NavBarComponent = () => {
             <CartWidget/>
         </Navbar>
     );
-}
+};
 
 export default NavBarComponent;

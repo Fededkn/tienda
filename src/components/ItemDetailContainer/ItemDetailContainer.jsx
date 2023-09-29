@@ -1,26 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import { getItem } from '../../json/ProductsData'; 
-import ItemDetail from '../ItemDetail/ItemDetail';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { Button, Card, ListGroup } from 'react-bootstrap';
 
-const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState({});
-    const [loader, setLoader] = useState(false)
-    const { id } = useParams()
+import ItemCount from '../ItemCount/ItemCount'
 
-    useEffect(() => {
-        setLoader(true)
-            getItem(id)
-            .then((res) => setProducto(res))
-            .catch((error) => console.log(error))
-            .finally(()=> setLoader(false))
-    }, []);
+const ItemDetailContainer = ({ productData }) => {
+    const [stock, setStock] = React.useState(10);
+    const [onAdd, setOnAdd] = React.useState(false);
+
+    const buttonStyles = {
+        backgroundColor: "blue",
+    };
+
+    const buttonStylesOnAdd = {
+        backgroundColor: "green",
+    };
 
     return (
-        <div>
-            {loader ? <p>Cargando...</p> : <ItemDetail producto={producto}/>}
-        </div>
+
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={productData.thumbnail} />
+            <Card.Body>
+                <Card.Title>{productData.name}</Card.Title>
+                <Card.Text>{productData.description}</Card.Text>
+                <Card.Text>{productData.price}</Card.Text>
+                <ItemCount />
+                {stock >= 5 ? (
+                    <strong>Stock disponible!</strong>
+                ) : (
+                    <strong>Últimas unidades disponibles!</strong>
+                )}
+            </Card.Body>
+        </Card>
     );
 };
 
-export default ItemDetailContainer;
+export default ItemDetailContainer

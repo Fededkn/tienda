@@ -1,11 +1,11 @@
-// import ButtonComponent from './components/ButtonComponent/ButtonComponent';
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
-import {productsData} from "../json/ProductsData";
+import LoaderComponent from "../components/LoaderComponent/LoaderComponent";
+import { useCollection } from "../hooks/useCollection";
 
 const Home = () => {
-    return (
-        <ItemListContainer productsData={productsData}/>
-    )
+
+    const { data, loading } = useCollection("products")
+    return loading ? <LoaderComponent/> : <ItemListContainer productsData={data}/>     
 }
 
-export default Home
+export default Home;

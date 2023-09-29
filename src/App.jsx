@@ -1,25 +1,16 @@
-  import React from "react";
-  import NavBarComponent from "./components/NavBarComponent/NavBarComponent";
-  import CartWidget from "./components/CartWidget/CartWidget";
-  import ButtonComponent from './components/ButtonComponent/ButtonComponent';
-  import 'bootstrap/dist/css/bootstrap.min.css';
-  import MainRouter from './routes/MainRouter';
-import { CartProvider } from "./CartContext/CartContext";
+import { CartProvider } from './context/CartContext';
+import MainLayout from './layouts/MainLayout';
+import MainRouter from './routes/MainRouter';
 
-
-const App = () => {
+function App() {
 
   return (
-    <div>
-      <main>
-        <CartProvider>
-          <MainRouter/>
-        </CartProvider>
-      
-      </main>
-
-    </div>
-  );
+    <CartProvider>
+      <MainLayout>
+        <MainRouter />
+      </MainLayout>
+    </CartProvider>
+  )
 }
 
-export default App;
+export default App
