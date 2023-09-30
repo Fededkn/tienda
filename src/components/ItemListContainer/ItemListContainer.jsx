@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
-// import styles from "./ItemListContainer.css";
+import "./ItemListContainer.css";
+import "../../css/common.css"
 
 const ItemListContainer = ({ productsData }) => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div className="containerCommon">
             {productsData.map((product) => {
                 return (
-                    <Card style={{ width: "18rem" }} key={product.id}>
-                    <Card.Img variant="top" src={product.thumbnail} />
+                    <Card key={product.id}>
+                    <Card.Img  className="cardImg" variant="top" src={product.thumbnail} />
                     <Card.Body>
                         <Card.Title>{product.title}</Card.Title>
                         <Card.Text>{product.description}</Card.Text>

@@ -11,11 +11,13 @@ const ItemCount = () => {
     const handleAddProduct = () => {
         setCartItems(cartItems + 1);
         setCount(count + 1);
-        };
+    };
 
     const handleRemoveProduct = () => {
-        setCartItems(cartItems - 1)
-        setCount(count - 1)
+        if( count > 0){
+            setCartItems(cartItems - 1)
+            setCount(count - 1)
+        }
     }
 
     return (

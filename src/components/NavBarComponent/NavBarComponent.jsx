@@ -17,23 +17,19 @@ const NavBarComponent = () => {
                 <Navbar.Brand as={NavLink} className='brand' to={"/"}>Tienda Tech</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link>
-                            <Link to="/">Home</Link>
-                        </Nav.Link>
+                    <Nav className="me-auto d-flex justify-content-center w-100">
                         
                         { loading ? null : (
                             <NavDropdown title="Categorias" id="basic-nav-dropdown">
                             {data[0].categories.map((category, index) => {
                                 return (
-                                    <NavDropdown.Item key={index}>
+                                    <NavDropdown.Item className='navDropdownItem' key={index}>
                                 <Link to={`/category/${category}`}>{category}</Link>
                             </NavDropdown.Item>
                         );
                         })}
                             </NavDropdown>
                         )}
-
                         <Nav.Link href="#link">Contacto</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
